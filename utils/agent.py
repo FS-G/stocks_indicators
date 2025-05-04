@@ -29,16 +29,14 @@ class StockAgent:
     
     def generate_final_answer(self, query, indicators_up, indicators_down):
         content = f"""
-        ## write a heading for indicator analyzis ##
-        Firstly analyze the following indicators and tell in detiails the top ten indicators that will affect the stock price in up and down direction.
+
+        Analyze the following indicators and tell in detiails the top ten indicators that will affect the stock price in up and down direction.
+        DONT WRITE THE NUMERICAL VALUES AS THEY DO NOT MAKE SENSE TO THE USER.
+        JUST A BRIEF COMPREHENSIVE SUMMARY - TOP TEN INDICATORS THAT WILL AFFECT THE STOCK PRICE IN UP AND DOWN DIRECTION.
         Up indicators: {indicators_up}
         Down indicators: {indicators_down}
 
-        ## write a heading for final answer ##
-        Based on the following indicators, please provide a final answer to the query.
-        Query: {query}
-        Indicators: {indicators_up}
-        Indicators: {indicators_down}
+
         """
         response = self.client.models.generate_content(
             model='gemini-2.0-flash',
