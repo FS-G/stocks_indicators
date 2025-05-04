@@ -36,6 +36,8 @@ class StockAgent:
         Up indicators: {indicators_up}
         Down indicators: {indicators_down}
 
+        NOTE: BE CONCISE - DONT SAY ANY OTHER THINGS. AND YOU SHOULD WRITE LIKE STOCKS ANALYST.
+
 
         """
         response = self.client.models.generate_content(
