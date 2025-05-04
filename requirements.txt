@@ -1,0 +1,17 @@
+openai
+pandas
+pydub
+python-dotenv
+openai-agents
+rich
+streamlit
+psycopg2-binary
+langchain
+langchain-core
+langchain-experimental
+langchain-openai
+tabulate
+yfinance
+category-encoders
+scikit-learn
+google-genai

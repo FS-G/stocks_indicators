@@ -45,4 +45,4 @@ class StockAgent:
             contents=content,
 
         )
-        return response.parsed.stock_symbol
+        return response.text
