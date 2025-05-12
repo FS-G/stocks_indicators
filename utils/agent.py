@@ -31,8 +31,8 @@ class StockAgent:
         content = f"""
 
         Analyze the following indicators and tell in detiails the top ten indicators that will affect the stock price in up and down direction.
-        DONT WRITE THE NUMERICAL VALUES AS THEY DO NOT MAKE SENSE TO THE USER.
         JUST A BRIEF COMPREHENSIVE SUMMARY - TOP TEN INDICATORS THAT WILL AFFECT THE STOCK PRICE IN UP AND DOWN DIRECTION.
+        Also make a tabular summary.
         Up indicators: {indicators_up}
         Down indicators: {indicators_down}
 

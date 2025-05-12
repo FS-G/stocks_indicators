@@ -110,13 +110,18 @@ class StockPredictor:
     def predict_features(self, X: pd.DataFrame, y: pd.Series, top_n: int = 10):
         """
         Train a logistic model and return top_n positive and negative contributing features.
+        Coefficients are normalized by dividing by the maximum absolute value.
         """
         self.model = LogisticRegression(solver='liblinear', max_iter=1000)
         self.model.fit(X, y)
 
         coefs = pd.Series(self.model.coef_[0], index=X.columns)
-        top_pos = coefs.nlargest(top_n)
-        top_neg = coefs.nsmallest(top_n)
+        # Normalize coefficients by dividing by max absolute value
+        max_abs_coef = abs(coefs).max()
+        coefs_normalized = coefs / max_abs_coef
+        
+        top_pos = coefs_normalized.nlargest(top_n)
+        top_neg = coefs_normalized.nsmallest(top_n)
         return top_pos, top_neg
 
     def decode_row(self, X_enc_row: pd.DataFrame):
