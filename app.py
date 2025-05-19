@@ -1,6 +1,8 @@
 import streamlit as st
 from utils.data_manager import DataManager
-from utils.stock_predictor import StockPredictor
+# from utils.stock_predictor import StockPredictor
+# from utils.stock_predictor_1 import BuySignalPredictor
+from utils.stock_predictor_1 import StockPredictor
 from utils.agent import StockAgent
 import time
 import pandas as pd
@@ -39,21 +41,31 @@ if st.button("Analyze"):
                 
                 with st.spinner("Agent processing indicators..."):
                     # Process data
-                    sp = StockPredictor(numeric_threshold=0.9)
-                    X, y = sp.process_data(df)
+                    # sp = StockPredictor(numeric_threshold=0.9)
+                    # sp = BuySignalPredictor(numeric_threshold=0.9)
+
+                    predictor = StockPredictor()
+                    X_proc, y = predictor.process_data(df)
                     st.success("Data processed successfully!")
-                    time.sleep(1)
+                    predictor.train(X_proc, y)
+                    
+
+
+                    # X, y = sp.process_data(df)
+                    # st.success("Data processed successfully!")
+                    # time.sleep(1)
                 
                 with st.spinner("Agent identifying top indicators..."):
                     # Extract top contributors
-                    top_up, top_down = sp.predict_features(X, y, top_n=10)
+                    # top_up, top_down = sp.predict_features(X, y, top_n=10)
+                    best = predictor.get_best_combinations(X_proc, top_n=10)
                     
                     # Display top indicators in expanders
-                    with st.expander("Top 10 indicators suggesting price increase"):
-                        st.dataframe(top_up)
+                    with st.expander("Top 10 Best buy indicators"):
+                        st.dataframe(best)
                     
-                    with st.expander("Top 10 indicators suggesting price decrease"):
-                        st.dataframe(top_down)
+                    # with st.expander("Top 10 indicators suggesting price decrease"):
+                    #     st.dataframe(top_down)
                     
                     time.sleep(1)
                 

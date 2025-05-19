@@ -27,14 +27,13 @@ class StockAgent:
         )
         return response.parsed.stock_symbol
     
-    def generate_final_answer(self, query, indicators_up, indicators_down):
+    def generate_final_answer(self, query, best_indicators):
         content = f"""
 
         Analyze the following indicators and tell in detiails the top ten indicators that will affect the stock price in up and down direction.
         JUST A BRIEF COMPREHENSIVE SUMMARY - TOP TEN INDICATORS THAT WILL AFFECT THE STOCK PRICE IN UP AND DOWN DIRECTION.
         Also make a tabular summary.
-        Up indicators: {indicators_up}
-        Down indicators: {indicators_down}
+        Up indicators: {best_indicators}
 
         NOTE: BE CONCISE - DONT SAY ANY OTHER THINGS. AND YOU SHOULD WRITE LIKE STOCKS ANALYST.
 

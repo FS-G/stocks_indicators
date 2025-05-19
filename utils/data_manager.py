@@ -132,5 +132,6 @@ class DataManager:
         return merged_df
 
 
-# manager = DataManager('GOOGL')
-# df = manager.get_merged_data()
+manager = DataManager('GOOGL')
+df = manager.get_merged_data()
+print(df.head())

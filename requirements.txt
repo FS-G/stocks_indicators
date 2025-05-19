@@ -15,3 +15,6 @@ yfinance
 category-encoders
 scikit-learn
 google-genai
+optuna
+matplotlib
+seaborn
