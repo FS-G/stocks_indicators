@@ -31,8 +31,8 @@ def live_data_tool(stock_symbol: str):
     
     ticker = yf.Ticker(stock_symbol)
     history = ticker.history(start=start_date.strftime('%Y-%m-%d'), end=end_date.strftime('%Y-%m-%d'))
-    history = history.to_json()
-    print("history", history)
+    # history = history.to_json()
+    # print("history", history)
     
     return history
 from google.genai import types
@@ -81,11 +81,15 @@ class StockAgent:
         content = f"""
         Answer the user query like a STOCK ANALYST.
         User query: {query}
+
+        context:
         Best Buy Feature Combinations: {best_indicators} 
-        Historical/current data and current prices: live_data_tool - this tool takes stock_symbol: {stock_symbol} as argument.
         The date today is: {today}
 
-        Your answer should be aligned with the user query.
+        tools:
+        Historical/current data and current prices: live_data_tool - this tool takes stock_symbol: {stock_symbol} as argument. Strictly check the dates and then interpret the prices or any other values.
+
+        YOUR ANSWER SHOULD BE STRICTLY ALIGNED TO USER QUERY.
         """
         # content1 = "tell the current price of google stock"
         print("Agent generating final answer...")
