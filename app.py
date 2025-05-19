@@ -59,7 +59,7 @@ if st.button("Analyze"):
                 with st.spinner("Agent identifying top indicators..."):
                     # Extract top contributors
                     # top_up, top_down = sp.predict_features(X, y, top_n=10)
-                    best = predictor.get_best_combinations(X_proc, top_n=10)
+                    best = predictor.get_best_combinations(X_proc, top_n=5)
                     
                     # Display top indicators in expanders
                     with st.expander("Top 10 Best buy indicators"):

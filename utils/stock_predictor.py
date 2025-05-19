@@ -38,15 +38,17 @@ class StockPredictor:
             'Sector', 'DataName_Class_Prior', 'DataGreenVal_SupportRange_sector',
             'DataRedVal_ResistanceRange_sector', 'Timeframe_DailyMinute_sector',
             # numeric predictors
-            'DataVal_PercChange_stock', 'DataVal_Price_Change', 'DataVal3_SupportPerc_stock',
-            'DataVal4_ResistancePerc_stock', 'DataGreenVal_SupportRange_stock',
-            'DataRedVal_ResistanceRange_stock', 'DataMagentaVal_MajorResistance',
-            'DataYellowVal_MajorSupport', 'DataVal_PercDiff', 'ClosePrice_stock',
-            'divergenceCount_stock', 'dailyPercentileHigh_stock', 'dailyPercentileLow_stock',
-            'dailyPercentileCurrent_stock', 'dailyPercentileCount_stock', 'dailyPercentileSPY_stock',
-            'EarlyMoveSignal',
-            'divergenceCount_sector', 'dailyPercentileHigh_sector', 'dailyPercentileLow_sector',
-            'dailyPercentileCurrent_sector', 'dailyPercentileCount_sector', 'dailyPercentileSPY_sector'
+            'ClosePrice_stock',
+            # 'DataVal_PercChange_stock', 'DataVal_Price_Change', 'DataVal3_SupportPerc_stock',
+            # 'DataVal4_ResistancePerc_stock', 'DataGreenVal_SupportRange_stock',
+            # 'DataRedVal_ResistanceRange_stock', 'DataMagentaVal_MajorResistance',
+            # 'DataYellowVal_MajorSupport', 'DataVal_PercDiff',
+            # 'divergenceCount_stock', 'dailyPercentileHigh_stock', 'dailyPercentileLow_stock',
+            # 'dailyPercentileCurrent_stock', 'dailyPercentileCount_stock', 'dailyPercentileSPY_stock',
+            # 'EarlyMoveSignal',
+            # 'divergenceCount_sector', 'dailyPercentileHigh_sector', 'dailyPercentileLow_sector',
+            # 'dailyPercentileCurrent_sector', 'dailyPercentileCount_sector', 'dailyPercentileSPY_sector',
+
         ]
         df = df[good].copy()
         df['Future_closing_price_stock'] = df['ClosePrice_stock'].shift(-1)
