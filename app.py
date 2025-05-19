@@ -62,7 +62,7 @@ if st.button("Analyze"):
                     best = predictor.get_best_combinations(X_proc, top_n=5)
                     
                     # Display top indicators in expanders
-                    with st.expander("Top 10 Best buy indicators"):
+                    with st.expander("Top Best Buy Indicators"):
                         st.dataframe(best)
                     
                     # with st.expander("Top 10 indicators suggesting price decrease"):
