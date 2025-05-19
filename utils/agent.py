@@ -33,6 +33,7 @@ def live_data_tool(stock_symbol: str):
     history = ticker.history(start=start_date.strftime('%Y-%m-%d'), end=end_date.strftime('%Y-%m-%d'))
     # history = history.to_json()
     # print("history", history)
+    history = history[::-1]
     
     return history
 from google.genai import types
