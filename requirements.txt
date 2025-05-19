@@ -18,3 +18,4 @@ google-genai
 optuna
 matplotlib
 seaborn
+yfinance

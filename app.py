@@ -71,7 +71,7 @@ if st.button("Analyze"):
                 
                 with st.spinner("Agent generating final analysis..."):
                     # Generate the final answer
-                    final_answer = agent.generate_final_answer(query, top_up, top_down)
+                    final_answer = agent.generate_final_answer(query, best, stock_symbol)
                     if not final_answer:
                         st.warning("The analysis completed, but no detailed explanation could be generated.")
                     time.sleep(1)
