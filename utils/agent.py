@@ -23,13 +23,16 @@ def live_data_tool(stock_symbol: str):
         stock_symbol (str): Ticker symbol of the stock (e.g., 'AAPL', 'GOOG').
 
     Returns:
-        pandas.DataFrame: Historical stock data for the last 30 days.
+        pandas.DataFrame: Historical stock data for the last 30 days. Cas you used for the current price.
     """
+    print(f"Fetching historical stock data for {stock_symbol}...")
     end_date = datetime.today()
-    start_date = end_date - timedelta(days=30)
+    start_date = end_date - timedelta(days=5)
     
     ticker = yf.Ticker(stock_symbol)
     history = ticker.history(start=start_date.strftime('%Y-%m-%d'), end=end_date.strftime('%Y-%m-%d'))
+    history = history.to_json()
+    print("history", history)
     
     return history
 from google.genai import types
@@ -78,10 +81,15 @@ class StockAgent:
         content = f"""
         Answer the user query like a STOCK ANALYST.
         User query: {query}
-        Top 10 best indicators: {best_indicators} 
+        Best Buy Feature Combinations: {best_indicators} 
         Historical/current data and current prices: live_data_tool - this tool takes stock_symbol: {stock_symbol} as argument.
         The date today is: {today}
+
+        Your answer should be aligned with the user query.
         """
+        # content1 = "tell the current price of google stock"
+        print("Agent generating final answer...")
+        print(content)
         response = self.client.models.generate_content(
             model='gemini-2.0-flash',
             contents=content,

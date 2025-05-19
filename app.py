@@ -1,5 +1,5 @@
 import streamlit as st
-from utils.data_manager import DataManager
+# from utils.data_manager import DataManager
 # from utils.stock_predictor import StockPredictor
 # from utils.stock_predictor_1 import BuySignalPredictor
 from utils.stock_predictor_1 import StockPredictor
@@ -33,6 +33,7 @@ if st.button("Analyze"):
                     # Get stock data
                     manager = DataManager(stock_symbol)
                     df = manager.get_merged_data()
+                    # df = pd.read_csv("stock_data.csv")
                     if df.empty:
                         st.error(f"No data found for stock symbol: {stock_symbol}")
                         st.stop()
