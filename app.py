@@ -1,5 +1,5 @@
 import streamlit as st
-# from utils.data_manager import DataManager
+from utils.data_manager import DataManager
 # from utils.stock_predictor import StockPredictor
 # from utils.stock_predictor_1 import BuySignalPredictor
 from utils.stock_predictor_1 import StockPredictor
