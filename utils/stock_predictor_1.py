@@ -151,62 +151,62 @@ class StockPredictor:
         )
         return pd.concat([cat_dec, num_dec], axis=1)
 
-# ---------------------- USAGE EXAMPLE ----------------------
-if __name__ == "__main__":
-    # Generate a dummy DataFrame with required columns
-    n_rows = 100
-    np.random.seed(42)
-    df_dummy = pd.DataFrame({
-        'column0': np.random.choice(['A', 'B'], size=n_rows),
-        'TimeOfScan': np.random.randint(0, 2359, size=n_rows),
-        'DataName_Dominant_stock': np.random.choice(['X', 'Y', 'Z'], size=n_rows),
-        'DataName_ThisMove_stock': np.random.choice(['Up', 'Down'], size=n_rows),
-        'DataName_BullBearDir_stock': np.random.choice(['Bull', 'Bear'], size=n_rows),
-        'DataName_OppSupRes_stock': np.random.choice(['Sup', 'Res'], size=n_rows),
-        'DataName_Class_stock': np.random.choice(['C1', 'C2'], size=n_rows),
-        'DataName_Stock_Realtime_stock': np.random.choice(['R1', 'R2'], size=n_rows),
-        'DataName_Correl_stock': np.random.choice(['High', 'Low'], size=n_rows),
-        'DataName_PriorClass': np.random.choice(['P1', 'P2'], size=n_rows),
-        'DataName_IntTurn': np.random.choice(['T1', 'T2'], size=n_rows),
-        'Timeframe_DailyMinute_stock': np.random.choice(['D', 'M'], size=n_rows),
-        'DataName_Dominant_sector': np.random.choice(['S1', 'S2'], size=n_rows),
-        'DataName_Class_sector': np.random.choice(['SC1', 'SC2'], size=n_rows),
-        'DataName_BullBearDir_sector': np.random.choice(['Bull', 'Bear'], size=n_rows),
-        'BuySellSignal_GreenStronger': np.random.choice(['G', 'R'], size=n_rows),
-        'SupportResistanceLevel': np.random.rand(n_rows)*100,
-        'Sector': np.random.choice(['Tech', 'Finance'], size=n_rows),
-        'DataName_Class_Prior': np.random.choice(['CP1', 'CP2'], size=n_rows),
-        'DataGreenVal_SupportRange_sector': np.random.rand(n_rows)*50,
-        'DataRedVal_ResistanceRange_sector': np.random.rand(n_rows)*50,
-        'Timeframe_DailyMinute_sector': np.random.choice(['D', 'M'], size=n_rows),
-        # numeric columns
-        'DataVal_PercChange_stock': np.random.randn(n_rows),
-        'DataVal_Price_Change': np.random.randn(n_rows),
-        'DataVal3_SupportPerc_stock': np.random.randn(n_rows),
-        'DataVal4_ResistancePerc_stock': np.random.randn(n_rows),
-        'DataGreenVal_SupportRange_stock': np.random.randn(n_rows),
-        'DataRedVal_ResistanceRange_stock': np.random.randn(n_rows),
-        'DataMagentaVal_MajorResistance': np.random.randn(n_rows),
-        'DataYellowVal_MajorSupport': np.random.randn(n_rows),
-        'DataVal_PercDiff': np.random.randn(n_rows),
-        'ClosePrice_stock': np.random.rand(n_rows)*200,
-        'divergenceCount_stock': np.random.randint(0, 5, size=n_rows),
-        'dailyPercentileHigh_stock': np.random.rand(n_rows),
-        'dailyPercentileLow_stock': np.random.rand(n_rows),
-        'dailyPercentileCurrent_stock': np.random.rand(n_rows),
-        'dailyPercentileCount_stock': np.random.randint(0, 10, size=n_rows),
-        'dailyPercentileSPY_stock': np.random.rand(n_rows),
-        'EarlyMoveSignal': np.random.choice(['E1', 'E2'], size=n_rows),
-        'divergenceCount_sector': np.random.randint(0, 5, size=n_rows),
-        'dailyPercentileHigh_sector': np.random.rand(n_rows),
-        'dailyPercentileLow_sector': np.random.rand(n_rows),
-        'dailyPercentileCurrent_sector': np.random.rand(n_rows),
-        'dailyPercentileCount_sector': np.random.randint(0, 10, size=n_rows),
-        'dailyPercentileSPY_sector': np.random.rand(n_rows)
-    })
+# # ---------------------- USAGE EXAMPLE ----------------------
+# if __name__ == "__main__":
+#     # Generate a dummy DataFrame with required columns
+#     n_rows = 100
+#     np.random.seed(42)
+#     df_dummy = pd.DataFrame({
+#         'column0': np.random.choice(['A', 'B'], size=n_rows),
+#         'TimeOfScan': np.random.randint(0, 2359, size=n_rows),
+#         'DataName_Dominant_stock': np.random.choice(['X', 'Y', 'Z'], size=n_rows),
+#         'DataName_ThisMove_stock': np.random.choice(['Up', 'Down'], size=n_rows),
+#         'DataName_BullBearDir_stock': np.random.choice(['Bull', 'Bear'], size=n_rows),
+#         'DataName_OppSupRes_stock': np.random.choice(['Sup', 'Res'], size=n_rows),
+#         'DataName_Class_stock': np.random.choice(['C1', 'C2'], size=n_rows),
+#         'DataName_Stock_Realtime_stock': np.random.choice(['R1', 'R2'], size=n_rows),
+#         'DataName_Correl_stock': np.random.choice(['High', 'Low'], size=n_rows),
+#         'DataName_PriorClass': np.random.choice(['P1', 'P2'], size=n_rows),
+#         'DataName_IntTurn': np.random.choice(['T1', 'T2'], size=n_rows),
+#         'Timeframe_DailyMinute_stock': np.random.choice(['D', 'M'], size=n_rows),
+#         'DataName_Dominant_sector': np.random.choice(['S1', 'S2'], size=n_rows),
+#         'DataName_Class_sector': np.random.choice(['SC1', 'SC2'], size=n_rows),
+#         'DataName_BullBearDir_sector': np.random.choice(['Bull', 'Bear'], size=n_rows),
+#         'BuySellSignal_GreenStronger': np.random.choice(['G', 'R'], size=n_rows),
+#         'SupportResistanceLevel': np.random.rand(n_rows)*100,
+#         'Sector': np.random.choice(['Tech', 'Finance'], size=n_rows),
+#         'DataName_Class_Prior': np.random.choice(['CP1', 'CP2'], size=n_rows),
+#         'DataGreenVal_SupportRange_sector': np.random.rand(n_rows)*50,
+#         'DataRedVal_ResistanceRange_sector': np.random.rand(n_rows)*50,
+#         'Timeframe_DailyMinute_sector': np.random.choice(['D', 'M'], size=n_rows),
+#         # numeric columns
+#         'DataVal_PercChange_stock': np.random.randn(n_rows),
+#         'DataVal_Price_Change': np.random.randn(n_rows),
+#         'DataVal3_SupportPerc_stock': np.random.randn(n_rows),
+#         'DataVal4_ResistancePerc_stock': np.random.randn(n_rows),
+#         'DataGreenVal_SupportRange_stock': np.random.randn(n_rows),
+#         'DataRedVal_ResistanceRange_stock': np.random.randn(n_rows),
+#         'DataMagentaVal_MajorResistance': np.random.randn(n_rows),
+#         'DataYellowVal_MajorSupport': np.random.randn(n_rows),
+#         'DataVal_PercDiff': np.random.randn(n_rows),
+#         'ClosePrice_stock': np.random.rand(n_rows)*200,
+#         'divergenceCount_stock': np.random.randint(0, 5, size=n_rows),
+#         'dailyPercentileHigh_stock': np.random.rand(n_rows),
+#         'dailyPercentileLow_stock': np.random.rand(n_rows),
+#         'dailyPercentileCurrent_stock': np.random.rand(n_rows),
+#         'dailyPercentileCount_stock': np.random.randint(0, 10, size=n_rows),
+#         'dailyPercentileSPY_stock': np.random.rand(n_rows),
+#         'EarlyMoveSignal': np.random.choice(['E1', 'E2'], size=n_rows),
+#         'divergenceCount_sector': np.random.randint(0, 5, size=n_rows),
+#         'dailyPercentileHigh_sector': np.random.rand(n_rows),
+#         'dailyPercentileLow_sector': np.random.rand(n_rows),
+#         'dailyPercentileCurrent_sector': np.random.rand(n_rows),
+#         'dailyPercentileCount_sector': np.random.randint(0, 10, size=n_rows),
+#         'dailyPercentileSPY_sector': np.random.rand(n_rows)
+#     })
 
-    predictor = StockPredictor()
-    X_proc, y = predictor.process_data(df_dummy)
-    predictor.train(X_proc, y)
-    best = predictor.get_best_combinations(X_proc, top_n=10)
-    print(best)
+#     predictor = StockPredictor()
+#     X_proc, y = predictor.process_data(df_dummy)
+#     predictor.train(X_proc, y)
+#     best = predictor.get_best_combinations(X_proc, top_n=10)
+#     print(best)

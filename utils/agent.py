@@ -34,6 +34,7 @@ def live_data_tool(stock_symbol: str):
     # history = history.to_json()
     # print("history", history)
     history = history[::-1]
+    history = history.to_json()
     
     return history
 from google.genai import types
