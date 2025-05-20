@@ -150,11 +150,12 @@ class StockPredictor:
             self.encoder.inverse_transform(X_cat_enc),
             columns=self.cat_cols, index=X_enc.index
         )
-        num_dec = pd.DataFrame(
-            self.scaler.inverse_transform(X_num_enc),
-            columns=self.num_cols, index=X_enc.index
-        )
-        return pd.concat([cat_dec, num_dec], axis=1)
+        # num_dec = pd.DataFrame(
+        #     self.scaler.inverse_transform(X_num_enc),
+        #     columns=self.num_cols, index=X_enc.index
+        # )
+        # return pd.concat([cat_dec, num_dec], axis=1)
+        return cat_dec
 
 # # ---------------------- USAGE EXAMPLE ----------------------
 # if __name__ == "__main__":
