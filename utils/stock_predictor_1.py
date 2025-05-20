@@ -88,13 +88,13 @@ class StockPredictor:
         self.cat_cols = [c for c in X.columns if c not in self.num_cols]
 
         # impute
-        self.num_imputer = SimpleImputer(strategy='mean')
+        # self.num_imputer = SimpleImputer(strategy='mean')
         self.cat_imputer = SimpleImputer(strategy='constant', fill_value='__MISSING__')
 
-        X_num = pd.DataFrame(
-            self.num_imputer.fit_transform(X[self.num_cols]),
-            columns=self.num_cols, index=X.index
-        )
+        # X_num = pd.DataFrame(
+        #     self.num_imputer.fit_transform(X[self.num_cols]),
+        #     columns=self.num_cols, index=X.index
+        # )
         X_cat = pd.DataFrame(
             self.cat_imputer.fit_transform(X[self.cat_cols]),
             columns=self.cat_cols, index=X.index
@@ -108,14 +108,15 @@ class StockPredictor:
         )
 
         # scale numeric
-        self.scaler = StandardScaler()
-        X_num_sc = pd.DataFrame(
-            self.scaler.fit_transform(X_num),
-            columns=self.num_cols, index=X.index
-        )
+        # self.scaler = StandardScaler()
+        # X_num_sc = pd.DataFrame(
+        #     self.scaler.fit_transform(X_num),
+        #     columns=self.num_cols, index=X.index
+        # )
 
         # final matrix
-        X_processed = pd.concat([X_cat_enc, X_num_sc], axis=1)
+        # X_processed = pd.concat([X_cat_enc, X_num_sc], axis=1)
+        X_processed = X_cat_enc
         return X_processed, y
 
     def train(self, X: pd.DataFrame, y: pd.Series):
